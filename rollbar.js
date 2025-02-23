@@ -14,5 +14,5 @@ xhttp.onload = function() {
   document.getElementById('sdata').innerHTML = bar_text + ' ' + bar_text;
 };
 //xhttp.open("GET", "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=IBM&apikey=YOUR_API_KEY");
-xhttp.open("GET", "testdata.js");
+xhttp.open("GET", "https://jirkajurek.github.io/rollbar/testdata.js");
 xhttp.send();
