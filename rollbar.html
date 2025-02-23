@@ -1,0 +1,51 @@
+.bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+
+  width: 100%;
+  padding: 25px 0;
+
+  background-color: #e74c3c;
+  color: white;
+
+  font-family: Gelasio;
+  font-size: 18px;
+}
+
+#sdata {
+  display: block; /* Important to give the content a width */
+
+  width: 100%;
+  /*transform: translateX(100%); */
+  /* Animation start out of the screen */
+
+  /* Add the animation */
+  animation: move 30s linear infinite /* infinite make reapeat the animation indefinitely */;
+}
+
+/* Create the animation */
+@keyframes move {
+  to { transform: translateX(-100%); }
+<div class="bar">
+  <nobr id = "sdata" class="sdata"></nobr>
+</div>
+const xhttp = new XMLHttpRequest();
+xhttp.onload = function() {
+  var x = JSON.parse(this.responseText);
+  let bar_text = "";
+  //'Meta Data', 'Time Series (Daily)'
+  var ts = x['Time Series (Daily)'];
+  for (t in ts) {
+    bar_text += t + ": ";
+    var tsi = ts[t];
+    for ( l in tsi ) {
+      bar_text += "<a href='https://www.google.com'>" + l + ": " + tsi[l];
+    }  
+  }
+  document.getElementsByClassName('sdata')[0].innerHTML = bar_text + ' ' + bar_text;
+};
+//xhttp.open("GET", "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=IBM&apikey=YOUR_API_KEY");
+xhttp.open("GET", "https://jirkajurek.github.io/rollbar/testdata.js");
+xhttp.send();
