@@ -1,3 +1,4 @@
+<style>
 .bar {
   position: absolute;
   top: 0;
@@ -28,9 +29,11 @@
 /* Create the animation */
 @keyframes move {
   to { transform: translateX(-100%); }
+</style>
 <div class="bar">
   <nobr id = "sdata" class="sdata"></nobr>
 </div>
+<script>
 const xhttp = new XMLHttpRequest();
 xhttp.onload = function() {
   var x = JSON.parse(this.responseText);
@@ -49,3 +52,4 @@ xhttp.onload = function() {
 //xhttp.open("GET", "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=IBM&apikey=YOUR_API_KEY");
 xhttp.open("GET", "https://jirkajurek.github.io/rollbar/testdata.js");
 xhttp.send();
+</script>
