@@ -42,9 +42,7 @@ xhttp.onload = function() {
   for (t in ts) {
     bar_text += t + ": ";
     var tsi = ts[t];
-    for ( l in tsi ) {
-      bar_text += "<a href='" + tsi['url'] + "'>" + l + ": " + tsi['dev_stred'];
-    }  
+    bar_text += "<a href='" + tsi['url'] + "'>" + l + ": " + tsi['dev_stred'];  
   }
   document.getElementsByClassName('sdata')[0].innerHTML = bar_text + ' ' + bar_text;
 };
