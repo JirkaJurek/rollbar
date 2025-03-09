@@ -8,11 +8,34 @@
   width: 100%;
   padding: 25px 0;
 
-  background-color: #e74c3c;
+  background-color: black;
   color: white;
 
-  font-family: Gelasio;
+
   font-size: 18px;
+  a:link {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: pink;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: red;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:active {
+  color: yellow;
+  background-color: transparent;
+  text-decoration: underline;
+}
 }
 
 #sdata {
@@ -40,9 +63,8 @@ xhttp.onload = function() {
   let bar_text = "";
   var ts = x['kurzy'];
   for (t in ts) {
-    bar_text += t + ": ";
     var tsi = ts[t];
-    bar_text += "<a href='" + tsi['url'] + "'>střed: " + tsi['dev_stred']+"</a>";
+    bar_text += " | <a href='" + tsi['url'] + "'>"+ t + ": " + tsi['dev_stred']+"</a>";
   }
   document.getElementsByClassName('sdata')[0].innerHTML = bar_text + ' ' + bar_text;
 };
