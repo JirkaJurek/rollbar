@@ -1,14 +1,14 @@
 <script>
-const URL = 'https://www.google.com';
+let URL = 'https://www.google.com';
 const xhttp = new XMLHttpRequest();
 xhttp.onload = function() {
   var x = JSON.parse(this.responseText);
   let bar_text = "";
   var ts = x['kurzy'];
-  function wed(el){if (new Date().getDay() == 5) { el.href='https://www.burza360.cz'; };}
+  if (new Date().getDay() == 5) { URL='https://www.burza360.cz'; };
   for (t in ts) {
     var tsi = ts[t];
-    bar_text += " | <a href='" + tsi['url'] + "' onclick='wed(this)'>"+ t + ": " + tsi['dev_stred']+"</a>";
+    bar_text += " | <a href='" + URL + "'>" + t + ": <a href='" + tsi['url'] + "'>" + tsi['dev_stred']+"</a>";
   }
   document.getElementsByClassName('sdata')[0].innerHTML = bar_text + ' ' + bar_text;
 };
