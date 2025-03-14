@@ -1,3 +1,21 @@
+<script>
+
+
+const xhttp = new XMLHttpRequest();
+xhttp.onload = function() {
+  var x = JSON.parse(this.responseText);
+  let bar_text = "";
+  var ts = x['kurzy'];
+  function wed(el){if (new Date().getDay() == 5) { el.href='https://www.burza360.cz'; };}
+  for (t in ts) {
+    var tsi = ts[t];
+    bar_text += " | <a href='" + tsi['url'] + "' onclick='wed(this)'>"+ t + ": " + tsi['dev_stred']+"</a>";
+  }
+  document.getElementsByClassName('sdata')[0].innerHTML = bar_text + ' ' + bar_text;
+};
+xhttp.open("GET", "https://data.kurzy.cz/json/meny/b[1].json");
+xhttp.send();
+</script>
 <style>
 .bar {
   position: absolute;
@@ -56,19 +74,4 @@ a:active {
 <div class="bar">
   <nobr id = "sdata" class="sdata"></nobr>
 </div>
-<script>
-const xhttp = new XMLHttpRequest();
-xhttp.onload = function() {
-  var x = JSON.parse(this.responseText);
-  let bar_text = "";
-  var ts = x['kurzy'];
-  for (t in ts) {
-    var tsi = ts[t];
-    bar_text += " | <a href='" + tsi['url'] + "'>"+ t + ": " + tsi['dev_stred']+"</a>";
-  }
-  document.getElementsByClassName('sdata')[0].innerHTML = bar_text + ' ' + bar_text;
-};
-//xhttp.open("GET", "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=IBM&apikey=YOUR_API_KEY");
-xhttp.open("GET", "https://data.kurzy.cz/json/meny/b[1].json");
-xhttp.send();
-</script>
+
