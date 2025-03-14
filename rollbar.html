@@ -17,60 +17,43 @@ xhttp.send();
 </script>
 <style>
 .bar {
-  position: absolute;
-  top: 0;
-  left: 0;
   overflow-x: hidden;
-
   width: 100%;
-  padding: 25px 0;
-
   background-color: black;
   color: white;
-
-
-  font-size: 18px;
-  a:link {
+}
+.sdata {
+  display: block; /* Important to give the content a width */
+  width: 100%;
+  /*transform: translateX(100%); */
+  /* Animation start out of the screen */
+  /* Add the animation */
+  animation: move 30s linear infinite /* infinite make reapeat the animation indefinitely */;
+}
+a:link {
   color: white;
   background-color: transparent;
   text-decoration: none;
 }
-
 a:visited {
   color: pink;
   background-color: transparent;
   text-decoration: none;
 }
-
 a:hover {
   color: red;
   background-color: transparent;
   text-decoration: underline;
 }
-
 a:active {
   color: yellow;
   background-color: transparent;
   text-decoration: underline;
 }
-}
-
-#sdata {
-  display: block; /* Important to give the content a width */
-
-  width: 100%;
-  /*transform: translateX(100%); */
-  /* Animation start out of the screen */
-
-  /* Add the animation */
-  animation: move 30s linear infinite /* infinite make reapeat the animation indefinitely */;
-}
-
 /* Create the animation */
 @keyframes move {
   to { transform: translateX(-100%); }
 </style>
 <div class="bar">
-  <nobr id = "sdata" class="sdata"></nobr>
+  <nobr class="sdata"></nobr>
 </div>
-
